@@ -9,6 +9,13 @@
     "node": ">=18.0.0",
     "yarn": ">=1.22.0"
   },
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "type-check": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
   "dependencies": {
     "ts-node": "^10.9.1"
   },
