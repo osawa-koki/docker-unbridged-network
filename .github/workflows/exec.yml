@@ -1,0 +1,33 @@
+name: exec
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - v-*
+
+jobs:
+  exec:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: yarn
+      - name: Run nginx container
+        run: |
+          docker build -t docker-unbridged-network-nginx ./nginx/
+          docker run -d -p 8080:80 --rm --name docker-unbridged-network-nginx docker-unbridged-network-nginx
+      - name: Create .env file
+        run: cp .env.example .env
+      - name: Install dependencies
+        run: yarn install
+      - name: Build node image
+        run: docker build -t docker-unbridged-network-node .
+      - name: Exec locally
+        run: yarn start
+      - name: Exec in docker
+        run: docker run -it --rm --name docker-unbridged-network-node docker-unbridged-network-node
