@@ -26,7 +26,6 @@ console.log(`endpoint: ${endpoint}`)
 
 /* eslint-enable @typescript-eslint/no-non-null-assertion */
 
-console.log(`endpoint: ${endpoint}`)
 fetch(`${SCHEME}://${HOST}:${PORT}`)
   .then(async (res) => await res.text())
   .then((text) => {
