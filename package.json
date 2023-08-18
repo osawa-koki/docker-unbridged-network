@@ -1,0 +1,12 @@
+{
+  "name": "docker-unbridged-network",
+  "description": "🫧🫧🫧 Dockerブリッジを使わずにコンテナ間で通信する！",
+  "repository": "https://github.com/osawa-koki/docker-unbridged-network.git",
+  "author": "osawa-koki <koki@osawa.dev>",
+  "license": "Apache-2.0",
+  "private": false,
+  "engines": {
+    "node": ">=18.0.0",
+    "yarn": ">=1.22.0"
+  }
+}
