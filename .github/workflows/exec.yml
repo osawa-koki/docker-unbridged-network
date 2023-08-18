@@ -30,4 +30,4 @@ jobs:
       - name: Exec locally
         run: yarn start
       - name: Exec in docker
-        run: docker run -it --rm --name docker-unbridged-network-node docker-unbridged-network-node
+        run: docker run --rm --name docker-unbridged-network-node docker-unbridged-network-node
